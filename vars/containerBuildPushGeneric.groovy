@@ -1,6 +1,6 @@
 // vars/containerBuildPushGeneric.groovy
 def call(String imageName,
-         String imageTag
+         String imageTag,
          String containerRegistry = "us-east1-docker.pkg.dev/core-workshop/workshop-registry", 
          Closure body) {
   def label = "kaniko-${UUID.randomUUID().toString()}"
