@@ -14,6 +14,9 @@ def call(String imageName,
       if(env.EVENT_BASE_IMAGE_TAG) {
         customBuildArg = "--build-arg BASE_IMAGE_TAG=${env.EVENT_BASE_IMAGE_TAG}"
       }
+      if(eventTag) {
+        customBuildArg = "--build-arg BASE_IMAGE_TAG=${eventTag}"
+      }
       imageName = imageName.toLowerCase()
       container(name: 'kaniko', shell: '/busybox/sh') {
         withEnv(['PATH+EXTRA=/busybox:/kaniko']) {
